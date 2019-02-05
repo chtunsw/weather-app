@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import MaterialButton from './components/MaterialButton'
-import ApixuApiTest from './components/ApixuApiTest'
+import StartPage from './pages/StartPage'
+import WeatherPage from './pages/WeatherPage'
+
+//redux
+import { connect } from 'react-redux'
+import { changePageIndex} from './actions' 
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <MaterialButton />
-        <ApixuApiTest />
-      </div>
-    );
+    switch(this.props.currentPageIndex) {
+      case 'startPage':
+      return <StartPage />
+      case 'weatherPage':
+      return <WeatherPage />
+      default:
+      return <StartPage /> 
+    }
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+      currentPageIndex: state.page.pageIndex,
+  }
+}
+
+export default connect(mapStateToProps, { changePageIndex })(App);

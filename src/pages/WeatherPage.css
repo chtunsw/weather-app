@@ -1,0 +1,40 @@
+.reportCard {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 10%;
+	margin: auto;
+    width:80%;    
+	height: auto;
+	padding: 0
+}  
+
+.reportBlock_1 {
+    background-color:#7b00e6eb;
+	border-radius:20px 0 0 0;
+	box-shadow: 10px 10px 10px #33316f82;
+	margin: 0;
+	text-align: center
+}
+
+.reportBlock_2 {
+	background-color:#7b00e6eb;
+	border-radius:0 20px 0 0;
+	box-shadow: 10px 10px 10px #33316f82;
+	margin: 0;
+	text-align: center
+}
+
+.reportBlock_3 {
+	background-color:#ffffffa3;
+	box-shadow: 10px 10px 10px #33316f82;
+	border-radius:0 0 0 20px;
+	margin: 0;
+}
+
+.reportBlock_4 {
+	background-color:#ffffffa3;
+	box-shadow: 10px 10px 10px #33316f82;
+	border-radius:0 0 20px 0;
+	margin: 0;
+}

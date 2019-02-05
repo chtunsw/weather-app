@@ -1,0 +1,11 @@
+.mainBlock {
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 600px;
+    height: 200px;
+    margin:auto;
+    text-align: center;
+}
