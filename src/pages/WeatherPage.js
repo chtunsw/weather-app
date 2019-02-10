@@ -9,7 +9,7 @@ import WeatherDetailBlock from '../components/WeatherDetailBlock'
 
 //redux
 import { connect } from 'react-redux'
-import { changePageIndex, changeLocationState } from '../actions' 
+import { changePageIndex, changeWeatherLocation, changeWeatherData } from '../actions' 
 
 class WeatherPage extends React.Component {
     handleClick = (e) => {
@@ -26,19 +26,21 @@ class WeatherPage extends React.Component {
                     <BackIcon />
                 </Button>
                 <div className='reportCard'>
-                    <Grid container spacing={0}>
-                        <Grid className='reportBlock_1' item xs={6}>
-                        <span>{this.props.currentLocationState}</span>
+                    <Grid className='headerBlock' container spacing={0}>
+                        <Grid className='headerBlock_part' item xs={6}>
+                            <span className='headerTitle'>{this.props.currentWeatherLocation}</span>
                         </Grid>
-                        <Grid className='reportBlock_2' item xs={6}>
-                        <WeatherDetailBlock location={this.props.currentLocationState}/>
+                        <Grid className='headerBlock_part' item xs={6}>
+                            <div className='headerInfo'>
+                                {
+                                    this.props.currentWeatherData && 
+                                    <WeatherDetailBlock weatherData={this.props.currentWeatherData}/>
+                                }
+                            </div>
                         </Grid>
-                        <Grid className='reportBlock_3' item xs={6}>
-                        3
-                        </Grid>
-                        <Grid className='reportBlock_4' item xs={6}>
-                        4
-                        </Grid>
+                    </Grid>
+                    <Grid className='contentBlock' container spacing={0}>
+                        2
                     </Grid>
                 </div>
             </div>
@@ -48,8 +50,9 @@ class WeatherPage extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        currentLocationState: state.location.locationState
+        currentWeatherLocation: state.weather.weatherLocation,
+        currentWeatherData: state.weather.weatherData
     }
   }
 
-export default connect(mapStateToProps, {changePageIndex, changeLocationState})(WeatherPage)
+export default connect(mapStateToProps, {changePageIndex, changeWeatherLocation, changeWeatherData})(WeatherPage)

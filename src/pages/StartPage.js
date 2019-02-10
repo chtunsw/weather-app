@@ -10,9 +10,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import './CommonStyle.css'
 import './StartPage.css'
 
+import { getWeatherData } from '../static/getWeatherData'
+
 //redux
 import { connect } from 'react-redux'
-import { changePageIndex, changeLocationState } from '../actions' 
+import { changePageIndex, changeWeatherLocation, changeWeatherData } from '../actions' 
 
 class StartPage extends React.Component {
 
@@ -25,19 +27,25 @@ class StartPage extends React.Component {
         };
     }
 
+    setWeatherData = async() => {
+        this.props.changePageIndex({pageIndex:'weatherPage'})
+        const weatherResponse = await getWeatherData(this.props.currentWeatherLocation)
+        this.props.changeWeatherData({weatherData: weatherResponse})
+    }
+
     handleClick = (e) => {
         //currentTarget:监听onClick的元素
         const clickId = e.currentTarget.id;
         const clickNodeName = e.currentTarget.nodeName
         //change page index
-        clickId === 'getWeather' && !this.props.currentLocationState && this.setState({dialogFlag: true})
-        clickId === 'getWeather' && this.props.currentLocationState && this.props.changePageIndex({pageIndex:'weatherPage'});
+        clickId === 'getWeather' && !this.props.currentWeatherLocation && this.setState({dialogFlag: true})
+        clickId === 'getWeather' && this.props.currentWeatherLocation && this.setWeatherData();
         //handle dialog
         clickId === 'confirm' && this.setState({dialogFlag: false})
         //open menu
         clickId === 'menuButton' && this.setState({ anchorEl: e.currentTarget });
         //change location state and close menu
-        clickNodeName === 'LI' && this.props.changeLocationState({locationState: e.currentTarget.innerText})
+        clickNodeName === 'LI' && this.props.changeWeatherLocation({weatherLocation: e.currentTarget.innerText})
         && this.setState({ anchorEl: null });
     }
 
@@ -51,7 +59,7 @@ class StartPage extends React.Component {
                     aria-owns={this.state.anchorEl ? 'simple-menu' : undefined}
                     aria-haspopup="true"
                     variant="outlined">
-                        <b>select location: {this.props.currentLocationState} </b>
+                        <b>select location: {this.props.currentWeatherLocation} </b>
                     </Button>
 
                     <Menu
@@ -90,8 +98,9 @@ class StartPage extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        currentLocationState: state.location.locationState
+        currentWeatherLocation: state.weather.weatherLocation,
+        currentWeatherData: state.weather.weatherData
     }
 }
 
-export default connect(mapStateToProps, {changePageIndex, changeLocationState})(StartPage)
+export default connect(mapStateToProps, {changePageIndex, changeWeatherLocation, changeWeatherData})(StartPage)
