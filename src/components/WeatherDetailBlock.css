@@ -1,3 +1,13 @@
-.infoBlock {
-    display: inline-block;
+.row_name {
+    text-align:left;
+    font-family: 'Dancing Script', cursive;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.row_value {
+    text-align:right;
+    font-family: 'Dancing Script', cursive;
+    font-size: 15px;
+    font-weight: 400;
 }

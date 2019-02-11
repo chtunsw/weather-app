@@ -1,0 +1,31 @@
+.infoCard_block {
+    text-align: center;
+    display: block;
+}
+
+.infoCard_date {
+    display: block;
+    font-family: 'Acme', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.infoCard_icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.infoCard_temp {
+    display: block;
+    font-family: 'Acme', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.infoCard_type {
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 400;
+    font-size: 12px;
+}

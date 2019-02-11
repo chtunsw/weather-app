@@ -1,11 +1,17 @@
 .mainBlock {
-    position:fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
     width: 600px;
     height: 200px;
-    margin:auto;
     text-align: center;
+}
+
+.pageTitle {
+    display: block;
+    font-family: 'Kaushan Script', cursive;
+    margin:10px;
+    font-size:60px;
+    font-weight: 700;
+}
+
+.getWeatherButton {
+    margin: 10px
 }
