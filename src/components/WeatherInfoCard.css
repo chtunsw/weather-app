@@ -1,4 +1,7 @@
 .infoCard_block {
+    min-width: 100px;
+    min-height: 100px;
+    margin:5px;
     text-align: center;
     display: block;
 }
@@ -25,7 +28,8 @@
 
 .infoCard_type {
     display: block;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Acme', sans-serif;
+    color: #5bffa4;
     font-weight: 400;
     font-size: 12px;
 }

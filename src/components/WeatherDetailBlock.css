@@ -1,6 +1,12 @@
+.detailBlock {
+    min-width: 100px;
+    min-height: 100px;
+    margin:5px;
+}
+
 .row_name {
     text-align:left;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cabin Sketch', cursive;
     font-size: 15px;
     font-weight: 400;
     padding:5px
@@ -8,7 +14,7 @@
 
 .row_value {
     text-align:right;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Cabin Sketch', cursive;
     font-size: 15px;
     font-weight: 400;
     padding:5px

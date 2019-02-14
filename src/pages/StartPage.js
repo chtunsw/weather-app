@@ -13,7 +13,7 @@ import { getWeatherData } from '../static/getWeatherData'
 
 //redux
 import { connect } from 'react-redux'
-import { changePageIndex, changeWeatherLocation, changeWeatherData } from '../actions' 
+import { changePageIndex, changeWeatherLocation, changeWeatherData } from '../actions'
 
 class StartPage extends React.Component {
 
@@ -26,10 +26,10 @@ class StartPage extends React.Component {
         };
     }
 
-    setWeatherState = async(newLocation) => {
-        this.props.changeWeatherLocation({weatherLocation: newLocation})
+    setWeatherState = async (newLocation) => {
+        this.props.changeWeatherLocation({ weatherLocation: newLocation })
         const weatherResponse = await getWeatherData(newLocation)
-        this.props.changeWeatherData({weatherData: weatherResponse})
+        this.props.changeWeatherData({ weatherData: weatherResponse })
     }
 
     handleClick = (e) => {
@@ -37,40 +37,40 @@ class StartPage extends React.Component {
         const clickId = e.currentTarget.id;
         const clickNodeName = e.currentTarget.nodeName
         //change page index
-        clickId === 'getWeather' && !this.props.currentWeatherLocation && this.setState({dialogFlag: true})
-        clickId === 'getWeather' && this.props.currentWeatherLocation && this.props.changePageIndex({pageIndex:'weatherPage'});
+        clickId === 'getWeather' && !this.props.currentWeatherLocation && this.setState({ dialogFlag: true })
+        clickId === 'getWeather' && this.props.currentWeatherLocation && this.props.changePageIndex({ pageIndex: 'weatherPage' });
         //handle dialog
-        clickId === 'confirm' && this.setState({dialogFlag: false})
+        clickId === 'confirm' && this.setState({ dialogFlag: false })
         //open menu
         clickId === 'menuButton' && this.setState({ menuParent: e.currentTarget });
         //change weather location and data and close menu
         clickNodeName === 'LI' && this.setWeatherState(e.currentTarget.innerText)
-        && this.setState({ menuParent: null });
+            && this.setState({ menuParent: null });
     }
 
     render() {
-        return(
+        return (
             <div className='backGround'>
                 <div className='mainBlock'>
                     <span className='pageTitle'>Weather Report</span>
 
-                    <Button id='menuButton' onClick={this.handleClick} variant="outlined">
+                    <Button id='menuButton' onClick={this.handleClick} variant="outlined" size='small'>
                         <b>select location: {this.props.currentWeatherLocation} </b>
                     </Button>
 
                     <Menu
-                    id="simple-menu"
-                    anchorEl={this.state.menuParent}
-                    open={Boolean(this.state.menuParent)}
+                        id="simple-menu"
+                        anchorEl={this.state.menuParent}
+                        open={Boolean(this.state.menuParent)}
                     >
                         <MenuItem onClick={this.handleClick}>Sydney</MenuItem>
                         <MenuItem onClick={this.handleClick}>Beijing</MenuItem>
                         <MenuItem onClick={this.handleClick}>Moscow</MenuItem>
-                        <MenuItem onClick={this.handleClick}>New York</MenuItem>
+                        <MenuItem onClick={this.handleClick}>Paris</MenuItem>
                     </Menu>
 
                     <div className='getWeatherButton'>
-                        <Button id='getWeather' onClick={this.handleClick} variant="contained" color="primary">
+                        <Button id='getWeather' onClick={this.handleClick} variant="contained" color="primary" size='medium'>
                             get weather
                         </Button>
                     </div>
@@ -78,12 +78,12 @@ class StartPage extends React.Component {
                     <Dialog id='dialogNotice' open={this.state.dialogFlag}>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-description">
-                            Please select a location.
+                                Please select a location.
                             </DialogContentText>
                         </DialogContent>
                         <DialogActions>
                             <Button id='confirm' onClick={this.handleClick} color="primary">
-                            confirm
+                                confirm
                             </Button>
                         </DialogActions>
                     </Dialog>
@@ -100,4 +100,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {changePageIndex, changeWeatherLocation, changeWeatherData})(StartPage)
+export default connect(mapStateToProps, { changePageIndex, changeWeatherLocation, changeWeatherData })(StartPage)
