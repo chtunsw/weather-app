@@ -56,7 +56,7 @@ class WeatherPage extends React.Component {
 
     render() {
         const currentData = this.props.currentWeatherData
-        const emptyDayList = [null, null, null, null, null, null]
+        const emptyDayList = [null, null, null, null, null, null, null]
         const currentDay = currentData ? currentData.forecast.forecastday[0] : null
         const dayList = currentData ? currentData.forecast.forecastday.slice(0) : emptyDayList
         return (
