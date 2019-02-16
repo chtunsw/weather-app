@@ -3,7 +3,10 @@
     min-height: 100px;
     margin:5px;
     text-align: center;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .infoCard_date {
