@@ -9,7 +9,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import './CommonStyle.css'
 import './StartPage.css'
 
-import { getWeatherData } from '../static/getWeatherData'
+import { getWeatherData } from '../assets/getWeatherData'
 
 //redux
 import { connect } from 'react-redux'
