@@ -4,7 +4,6 @@ import WeatherPage from './pages/WeatherPage'
 
 //redux
 import { connect } from 'react-redux'
-import { changePageIndex } from './actions'
 
 class App extends Component {
   render() {
@@ -25,4 +24,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { changePageIndex })(App);
+export default connect(mapStateToProps)(App);
