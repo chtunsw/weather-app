@@ -11,7 +11,7 @@ import WeatherDetailBlock from '../components/WeatherDetailBlock'
 import WeatherInfoCard from '../components/WeatherInfoCard'
 import TwitterFeed from '../components/TwitterFeed'
 
-import { getWeatherData } from '../assets/getWeatherData'
+import { getWeatherData } from '../utilities/getWeatherData'
 
 //redux
 import { connect } from 'react-redux'
