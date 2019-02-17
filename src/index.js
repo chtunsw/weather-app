@@ -12,8 +12,8 @@ import rootReducer from './reducers';
 
 let initialStore = {};
 const store = createStore(
-    rootReducer, 
-    initialStore, 
+    rootReducer,
+    initialStore,
     // for redux devtools:
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

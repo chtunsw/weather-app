@@ -4,24 +4,24 @@ import WeatherPage from './pages/WeatherPage'
 
 //redux
 import { connect } from 'react-redux'
-import { changePageIndex} from './actions' 
+import { changePageIndex } from './actions'
 
 class App extends Component {
   render() {
-    switch(this.props.currentPageIndex) {
+    switch (this.props.currentPageIndex) {
       case 'startPage':
-      return <StartPage />
+        return <StartPage />
       case 'weatherPage':
-      return <WeatherPage />
+        return <WeatherPage />
       default:
-      return <StartPage /> 
+        return <StartPage />
     }
   }
 }
 
 function mapStateToProps(state) {
   return {
-      currentPageIndex: state.page.pageIndex,
+    currentPageIndex: state.page.pageIndex,
   }
 }
 
