@@ -5,6 +5,6 @@ npm install
 npm start
 
 ## screen shots:  
-![](./screenshot_1.png)  
-![](./screenshot_2.png)  
-![](./screenshot_3.png)  
+![](./screenshots/screenshot_1.png)  
+![](./screenshots/screenshot_2.png)  
+![](./screenshots/screenshot_3.png)  
